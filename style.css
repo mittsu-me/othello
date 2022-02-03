@@ -1,0 +1,60 @@
+/* Keep this rule in style.css */
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+/* 盤全体を黒色にする */
+#board {
+    background-color: black;
+}
+/* マス１つ１つを緑色の正方形にする */
+.board {
+    background-color: seagreen;
+    /* width: 62px;
+    height: 62px;
+    line-height: 62px; */
+}
+td {
+    width: 62px;
+    height: 62px;
+    line-height: 62px;
+    font-size: 62px;
+    text-align: center;
+}
+  /* Add more rules here */
+h1 {
+    color : blue;
+    text-align: center;
+}
+
+.white {
+    content: ●;
+    color : white;
+}
+
+.black {
+    content: ●;
+    color : black;
+}
+
+#canPut {
+    background-color: rgba(255, 255, 0, 0.5);
+}
+/* p {
+    background-color: yellow;
+}
+
+.awesome {
+    font-weight: bold;
+}
+
+#d {
+    color: red;
+}
+.little {
+    font-size: 50%;
+}
+
+span {
+    color: green;
+} */
