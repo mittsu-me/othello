@@ -49,13 +49,17 @@ function canPutWhiteStone() {
             whiteStonesArr.push(i);
         }
     }
+    console.log('whiteArr',whiteStonesArr)
     /* Upper line check. */
     whiteStonesArr.map(function(numOfWhite){
-        for (let upperIndex = numOfWhite + 8; upperIndex > 0
+        for (let upperIndex = numOfWhite + 8; upperIndex >= 0
+            && upperIndex < 64
             && masuTagTd[upperIndex].id !== 'canPut'; upperIndex -= 8) {
                 if (masuTagTd[upperIndex].className === 'black') {
-                    if (masuTagTd[upperIndex - 8].className === '') {
-                        masuTagTd[upperIndex - 8].id = 'canPut';
+                    if (upperIndex - 8 > 0){
+                        if (masuTagTd[upperIndex - 8].className === '') {
+                            masuTagTd[upperIndex - 8].id = 'canPut';
+                        }
                     }
                 }
             }
@@ -63,22 +67,28 @@ function canPutWhiteStone() {
     /* Under line check. */
     whiteStonesArr.map(function(numOfWhite){
         for (let underIndex = numOfWhite - 8; underIndex < 64
+            && underIndex >= 0
             && masuTagTd[underIndex].id !== 'canPut'; underIndex += 8) {
                 if (masuTagTd[underIndex].className === 'black') {
-                    if (masuTagTd[underIndex + 8].className === '') {
-                        masuTagTd[underIndex + 8].id = 'canPut';
+                    if (underIndex + 8 < 64) {
+                        if (masuTagTd[underIndex + 8].className === '') {
+                            masuTagTd[underIndex + 8].id = 'canPut';
+                        }
                     }
                 }
             }
     });
     /* Left line check. */
     whiteStonesArr.map(function(numOfWhite){
-        for (let leftIndex = numOfWhite + 1; leftIndex > 0
+        for (let leftIndex = numOfWhite + 1; leftIndex >= 0
+            && leftIndex < 64
             && leftIndex % 8 !== 0
             && masuTagTd[leftIndex].id !== 'canPut'; leftIndex -= 1) {
                 if (masuTagTd[leftIndex].className === 'black') {
-                    if (masuTagTd[leftIndex - 1].className === '') {
-                        masuTagTd[leftIndex - 1].id = 'canPut';
+                    if (leftIndex - 1 > 0) {
+                        if (masuTagTd[leftIndex - 1].className === '') {
+                            masuTagTd[leftIndex - 1].id = 'canPut';
+                        }
                     }
                 }
             }
@@ -86,33 +96,42 @@ function canPutWhiteStone() {
         /* Right line check. */
     whiteStonesArr.map(function(numOfWhite){
         for (let rightIndex = numOfWhite - 1; rightIndex < 64
+            && rightIndex >= 0
             && rightIndex % 8 !== 7
             && masuTagTd[rightIndex].id !== 'canPut'; rightIndex += 1) {
                 if (masuTagTd[rightIndex].className === 'black') {
-                    if (masuTagTd[rightIndex + 1].className === '') {
-                        masuTagTd[rightIndex + 1].id = 'canPut';
+                    if (rightIndex + 1 < 64) {
+                        if (masuTagTd[rightIndex + 1].className === '') {
+                            masuTagTd[rightIndex + 1].id = 'canPut';
+                        }
                     }
                 }
             }
     });
         /* Diagonally upper the left line check. */
     whiteStonesArr.map(function(numOfWhite){
-        for (let upperLeftIndex = numOfWhite - 9; upperLeftIndex > 0
+        for (let upperLeftIndex = numOfWhite - 9; upperLeftIndex >= 0
+            && upperLeftIndex < 64
             && masuTagTd[upperLeftIndex].id !== 'canPut'; upperLeftIndex-= 9) {
                 if (masuTagTd[upperLeftIndex].className === 'black') {
-                    if (masuTagTd[upperLeftIndex - 9].className === '') {
-                        masuTagTd[upperLeftIndex - 9].id = 'canPut';
+                    if (upperLeftIndex - 9 > 0) {
+                        if (masuTagTd[upperLeftIndex - 9].className === '') {
+                            masuTagTd[upperLeftIndex - 9].id = 'canPut';
+                        }
                     }
                 }
             }
     });
         /* Diagonally upper the right line check. */
     whiteStonesArr.map(function(numOfWhite){
-        for (let upperRightIndex = numOfWhite + 7; upperRightIndex > 0
+        for (let upperRightIndex = numOfWhite + 7; upperRightIndex >= 0
+            && upperRightIndex < 64
             && masuTagTd[upperRightIndex].id !== 'canPut'; upperRightIndex -= 7) {
                 if (masuTagTd[upperRightIndex].className === 'black') {
-                    if (masuTagTd[upperRightIndex - 7].className === '') {
-                        masuTagTd[upperRightIndex - 7].id = 'canPut';
+                    if (upperRightIndex - 7 > 0) {
+                        if (masuTagTd[upperRightIndex - 7].className === '') {
+                            masuTagTd[upperRightIndex - 7].id = 'canPut';
+                        }
                     }
                 }
             }
@@ -120,10 +139,13 @@ function canPutWhiteStone() {
         /* Diagonally under the left line check. */
     whiteStonesArr.map(function(numOfWhite){
         for (let underLeftIndex = numOfWhite - 7; underLeftIndex < 64
+            && underLeftIndex >= 0
             && masuTagTd[underLeftIndex].id !== 'canPut'; underLeftIndex += 7) {
                 if (masuTagTd[underLeftIndex].className === 'black') {
-                    if (masuTagTd[underLeftIndex + 7].className === '') {
-                        masuTagTd[underLeftIndex + 7].id = 'canPut';
+                    if (underLeftIndex + 7 < 64) {
+                        if (masuTagTd[underLeftIndex + 7].className === '') {
+                            masuTagTd[underLeftIndex + 7].id = 'canPut';
+                        }
                     }
                 }
             }
@@ -131,10 +153,13 @@ function canPutWhiteStone() {
         /* Diagonally under the right line check. */
     whiteStonesArr.map(function(numOfWhite){
         for (let underRightIndex = numOfWhite - 9; underRightIndex < 64
+            && underRightIndex >= 0
             && masuTagTd[underRightIndex].id !== 'canPut'; underRightIndex += 9) {
                 if (masuTagTd[underRightIndex].className === 'black') {
-                    if (masuTagTd[underRightIndex + 9].className === '') {
-                        masuTagTd[underRightIndex + 9].id = 'canPut';
+                    if (underRightIndex + 9 < 64) {
+                        if (masuTagTd[underRightIndex + 9].className === '') {
+                            masuTagTd[underRightIndex + 9].id = 'canPut';
+                        }
                     }
                 }
             }
@@ -148,13 +173,18 @@ function canPutBlackStone() {
             blackStonesArr.push(i);
         }
     }
+    console.log('blackArr',blackStonesArr)
     /* Upper line check. */
     blackStonesArr.map(function(numOfBlack){
-        for (let upperIndex = numOfBlack + 8; upperIndex > 0
+        for (let upperIndex = numOfBlack + 8; upperIndex >= 0
+            && upperIndex < 64
             && masuTagTd[upperIndex].id !== 'canPut'; upperIndex -= 8) {
                 if (masuTagTd[upperIndex].className === 'white') {
-                    if (masuTagTd[upperIndex - 8].className === '') {
-                        masuTagTd[upperIndex - 8].id = 'canPut';
+                    console.log('true')
+                    if (upperIndex - 8 > 0){
+                        if (masuTagTd[upperIndex - 8].className === '') {
+                            masuTagTd[upperIndex - 8].id = 'canPut';
+                        }
                     }
                 }
             }
@@ -162,22 +192,28 @@ function canPutBlackStone() {
     /* Under line check. */
     blackStonesArr.map(function(numOfBlack){
         for (let underIndex = numOfBlack - 8; underIndex < 64
+            && underIndex >= 0
             && masuTagTd[underIndex].id !== 'canPut'; underIndex += 8) {
                 if (masuTagTd[underIndex ].className === 'white') {
-                    if (masuTagTd[underIndex + 8].className === '') {
-                        masuTagTd[underIndex + 8].id = 'canPut';
+                    if (underIndex + 8 < 64) {
+                        if (masuTagTd[underIndex + 8].className === '') {
+                            masuTagTd[underIndex + 8].id = 'canPut';
+                        }
                     }
                 }
             }
     });
     /* Left line check. */
     blackStonesArr.map(function(numOfBlack){
-        for (let leftIndex = numOfBlack + 1; leftIndex > 0
+        for (let leftIndex = numOfBlack + 1; leftIndex >= 0
+            && leftIndex < 64
             && leftIndex % 8 !== 0
             && masuTagTd[leftIndex].id !== 'canPut'; leftIndex -= 1) {
                 if (masuTagTd[leftIndex].className === 'white') {
+                    if (leftIndex - 1 > 0) {
                     if (masuTagTd[leftIndex - 1].className === '') {
-                        masuTagTd[leftIndex - 1].id = 'canPut';
+                            masuTagTd[leftIndex - 1].id = 'canPut';
+                        }
                     }
                 }
             }
@@ -185,11 +221,14 @@ function canPutBlackStone() {
         /* Right line check. */
     blackStonesArr.map(function(numOfBlack){
         for (let rightIndex = numOfBlack - 1; rightIndex < 64
+            && rightIndex >= 0
             && rightIndex % 8 !== 7
             && masuTagTd[rightIndex].id !== 'canPut'; rightIndex += 1) {
                 if (masuTagTd[rightIndex].className === 'white') {
-                    if (masuTagTd[rightIndex + 1].className === '') {
-                        masuTagTd[rightIndex + 1].id = 'canPut';
+                    if (rightIndex + 1 < 64) {
+                        if (masuTagTd[rightIndex + 1].className === '') {
+                            masuTagTd[rightIndex + 1].id = 'canPut';
+                        }
                     }
                 }
             }
@@ -197,10 +236,13 @@ function canPutBlackStone() {
         /* Diagonally upper the left line check. */
     blackStonesArr.map(function(numOfBlack){
         for (let upperLeftIndex = numOfBlack + 9; upperLeftIndex > 0
+            && upperLeftIndex < 64
             && masuTagTd[upperLeftIndex].id !== 'canPut'; upperLeftIndex-= 9) {
                 if (masuTagTd[upperLeftIndex].className === 'white') {
-                    if (masuTagTd[upperLeftIndex - 9].className === '') {
-                        masuTagTd[upperLeftIndex - 9].id = 'canPut';
+                    if (upperLeftIndex - 9 > 0) {
+                        if (masuTagTd[upperLeftIndex - 9].className === '') {
+                            masuTagTd[upperLeftIndex - 9].id = 'canPut';
+                        }
                     }
                 }
             }
@@ -208,10 +250,13 @@ function canPutBlackStone() {
         /* Diagonally upper the right line check. */
     blackStonesArr.map(function(numOfBlack){
         for (let upperRightIndex = numOfBlack + 7; upperRightIndex > 0
+            && upperRightIndex < 64
             && masuTagTd[upperRightIndex].id !== 'canPut'; upperRightIndex -= 7) {
                 if (masuTagTd[upperRightIndex].className === 'white') {
-                    if (masuTagTd[upperRightIndex - 7].className === '') {
-                        masuTagTd[upperRightIndex - 7].id = 'canPut';
+                    if (upperRightIndex - 7 > 0) {
+                        if (masuTagTd[upperRightIndex - 7].className === '') {
+                            masuTagTd[upperRightIndex - 7].id = 'canPut';
+                        }
                     }
                 }
             }
@@ -219,10 +264,13 @@ function canPutBlackStone() {
         /* Diagonally under the left line check. */
     blackStonesArr.map(function(numOfBlack){
         for (let underLeftIndex = numOfBlack - 7; underLeftIndex < 64
+            && underLeftIndex >= 0
             && masuTagTd[underLeftIndex].id !== 'canPut'; underLeftIndex += 7) {
                 if (masuTagTd[underLeftIndex].className === 'white') {
-                    if (masuTagTd[underLeftIndex + 7].className === '') {
-                        masuTagTd[underLeftIndex + 7].id = 'canPut';
+                    if (underLeftIndex + 7 < 64) {
+                        if (masuTagTd[underLeftIndex + 7].className === '') {
+                            masuTagTd[underLeftIndex + 7].id = 'canPut';
+                        }
                     }
                 }
             }
@@ -230,10 +278,13 @@ function canPutBlackStone() {
         /* Diagonally under the right line check. */
     blackStonesArr.map(function(numOfBlack){
         for (let underRightIndex = numOfBlack - 9; underRightIndex < 64
+            && underRightIndex >= 0
             && masuTagTd[underRightIndex].id !== 'canPut'; underRightIndex += 9) {
                 if (masuTagTd[underRightIndex].className === 'white') {
-                    if (masuTagTd[underRightIndex + 9].className === '') {
-                        masuTagTd[underRightIndex + 9].id = 'canPut';
+                    if (underRightIndex + 9 < 64) {
+                        if (masuTagTd[underRightIndex + 9].className === '') {
+                            masuTagTd[underRightIndex + 9].id = 'canPut';
+                        }
                     }
                 }
             }
@@ -386,12 +437,12 @@ function reverseStone(stone,index) {
             console.log('under right')
         }
     }
-    console.log('stoneArr',stoneArr);
-    console.log('put',index);
-    console.log('provisional',provisionalArr);
-    console.log('reverse',reverseStonesArr);
-    console.log('after',reversedStone);
-    console.log('before',stone);
+    // console.log('stoneArr',stoneArr);
+    // console.log('put',index);
+    // console.log('provisional',provisionalArr);
+    // console.log('reverse',reverseStonesArr);
+    // console.log('after',reversedStone);
+    // console.log('before',stone);
     reverseStonesArr.map(num => {
         masuTagTd[num].className = reversedStone
     })
@@ -407,12 +458,20 @@ const blackStones = document.getElementsByClassName('black');
 const allStones = masuTagTd;
 
 function resetStonesArr() {
-    while (whiteStonesArr.length < 0) {
+    // console.log('white before',whiteStonesArr)
+    while (whiteStonesArr.length > 0) {
+        // console.log('white',whiteStonesArr.length)
         whiteStonesArr.pop()
     }
-    while (blackStonesArr.length < 0) {
+    whiteStonesArr.pop()
+    // console.log('white after',whiteStonesArr)
+    // console.log('black before',whiteStonesArr)
+    while (blackStonesArr.length > 0) {
+        // console.log('black',blackStonesArr.length)
         blackStonesArr.pop()
     }
+    blackStonesArr.pop()
+    // console.log('black after',blackStonesArr)
 }
 
 /* オセロ本体 */
