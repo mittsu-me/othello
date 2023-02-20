@@ -1,5 +1,11 @@
 /* Keep this rule in style.css */
-div {
+div.black {
+      display: flex;
+      justify-content: center;
+      background-color:gray;
+}
+
+div.white {
       display: flex;
       justify-content: center;
       background-color:gray;
