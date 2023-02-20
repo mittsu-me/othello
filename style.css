@@ -1,4 +1,8 @@
 /* Keep this rule in style.css */
+div {
+      justify-content: center;
+}
+
 table {
     margin-left: auto;
     margin-right: auto;
