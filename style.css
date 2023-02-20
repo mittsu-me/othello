@@ -1,6 +1,8 @@
 /* Keep this rule in style.css */
 div {
+      display: flex;
       justify-content: center;
+      background-color:gray;
 }
 
 table {
