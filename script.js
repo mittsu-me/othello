@@ -6,6 +6,8 @@ const masuTagTd = document.getElementsByTagName('td');
 // マス行を変数に格納
 const masuTagTr = document.getElementsByTagName('tr');
 
+const divTag = document.getElementsByTagName('div')[0];
+
 // 黒のターンかどうかのブーリアン値
 let blackTurn = true;
 
@@ -485,8 +487,10 @@ function oseroStart() {
             canPutanVisible();
             resetStonesArr();
             if (blackTurn === true) {
+                divTag.className = 'black';
                 canPutBlackStone();
             } else {
+                divTag.className = 'white';
                 canPutWhiteStone();
             }
             console.log(`白：${whiteStones.length}`);
